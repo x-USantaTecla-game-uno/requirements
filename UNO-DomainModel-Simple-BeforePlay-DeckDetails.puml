@@ -1,0 +1,32 @@
+﻿@startuml
+
+Uno *-- DrawPile
+Uno *-- DiscardPile
+Uno *-- "6" Player
+Uno *-- Turn
+
+note left of Uno : 6 players\nBEFORE PLAY (deck details)\nexample
+
+Player *-- "0" Card
+
+DiscardPile *-- "0" Card
+
+NumeredCard --|> Card
+ActionCard --|> Card
+
+WildCard --|> Card
+DrawFourWildCard --|> WildCard
+SimpleWildCard --|> WildCard
+
+DrawTwoCard --|> ActionCard
+SkipCard --|> ActionCard
+ReverseCard --|> ActionCard
+
+DrawPile ..> "76 (19 * Card Color)" NumeredCard
+DrawPile ..> "8 (2 * Card Color)" DrawTwoCard
+DrawPile ..> "8 (2 * Card Color)" ReverseCard
+DrawPile ..> "8 (2 * Card Color)" SkipCard
+DrawPile ..> "4" SimpleWildCard
+DrawPile ..> "4" DrawFourWildCard
+ 
+@enduml
