@@ -1,11 +1,11 @@
 ﻿@startuml
 
+Title 6 players BEFORE PLAY (deck details) example
+
 Uno *-- DrawPile
 Uno *-- DiscardPile
 Uno *-- "6" Player
 Uno *-- Turn
-
-note left of Uno : 6 players\nBEFORE PLAY (deck details)\nexample
 
 Player *-- "0" Card
 
@@ -22,10 +22,10 @@ DrawTwoCard --|> ActionCard
 SkipCard --|> ActionCard
 ReverseCard --|> ActionCard
 
-DrawPile ..> "76 (19 * Card Color)" NumeredCard
-DrawPile ..> "8 (2 * Card Color)" DrawTwoCard
-DrawPile ..> "8 (2 * Card Color)" ReverseCard
-DrawPile ..> "8 (2 * Card Color)" SkipCard
+DrawPile ..> "(0..9 + 1..9) * Card Color" NumeredCard
+DrawPile ..> "2 * Card Color" DrawTwoCard
+DrawPile ..> "2 * Card Color" ReverseCard
+DrawPile ..> "2 * Card Color" SkipCard
 DrawPile ..> "4" SimpleWildCard
 DrawPile ..> "4" DrawFourWildCard
  

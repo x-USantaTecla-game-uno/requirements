@@ -6,12 +6,6 @@ title Initial State 3 players (Objects)
 object "Uno" as Uno {
 }
 
-object "Board" as Board {
-}
-
-
-
-
 object "Player1" as Player1{
     cards = [Card32,
         Card22,
@@ -41,7 +35,6 @@ object "Player3" as Player3{
         Card73,
         Card24]
 }
-
 
 object "Turn" as Turn {
     currentPlayer= player1
@@ -102,7 +95,7 @@ object "DrawPile" as DrawPile {
         ]
 }
 
-note left of DrawPile
+note bottom of DrawPile
     exactly 86 cards
     (108 - 7 * 3 - 1)
     (all cards - 7 cards 
@@ -118,7 +111,6 @@ object "DiscardPile" as DiscardPile {
 }
 
 
-Uno *-- Board
 Uno *-- Player1
 Uno *-- Player2
 Uno *-- Player3
@@ -126,27 +118,27 @@ Uno *-- Turn
 
 Turn --> Player1
 
-Board *-- DrawPile
-Board *-- DiscardPile
+Uno *-- DrawPile
+Uno *-- DiscardPile
 
 
 DiscardPile o-- Card0Blue
 
-Player1 o-left- CardSkipGreen
+Player1 o-- CardSkipGreen
 Player1 o-left- Card9Blue
 Player1 o-- Card9Red
 Player1 o-- Card1Red
 Player1 o-- Card4Green
 Player1 o-right- CardWild
-Player1 o-right- CardReverseYellow
+Player1 o-- CardReverseYellow
 
 note as PlayerCardsNote
     same as player1 cards
-    (7 random cards form
-    drawed from draw pile)
+    (7 random cards drawed
+    from draw pile)
 endnote
 
-PlayerCardsNote .right. Player2
-PlayerCardsNote .right. Player3
+PlayerCardsNote .up. Player2
+PlayerCardsNote .up. Player3
 
 @enduml

@@ -1,16 +1,17 @@
 ﻿@startuml
 
+title 6 players END example
+
 Uno *-- DrawPile
 Uno *-- DiscardPile
 Uno *-- "6" Player
 
-note left of Uno : 6 players END example
-
 WinnerPlayer -u-|> Player
-WinnerPlayer *-- "0" Card
+WinnerPlayer  *-- "0" Card
 LoserPlayer -u-|> Player
-LoserPlayer *-- "1..*" Card
+LoserPlayer "5" *-- "1..*" Card
 
-DrawPile *-- Card
+DrawPile *-- "1..*" Card
 DiscardPile *-- "1..*" Card
+
 @enduml

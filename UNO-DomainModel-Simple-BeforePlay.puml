@@ -1,15 +1,16 @@
 ﻿@startuml
 
+Title 6 players BEFORE PLAY example
+
 Uno *-- DrawPile
 Uno *-- DiscardPile
 Uno *-- "6" Player
 Uno *-- Turn
 
-note left of Uno : 6 players BEFORE PLAY example
-
+Turn *-- "6" Player
 Player *-- "0" Card
 
 DrawPile *-- "108" Card
 DiscardPile *-- "0" Card
- 
+
 @enduml

@@ -16,9 +16,7 @@
     
     Shuffling deck.
     Players hands dealt.
-    
-    See Player 1 hand? (Yes/No)
-        -> Yes
+
     Player 1:
             1.[Red, 3], - new!
             2.[Green, 4], - new!
@@ -27,7 +25,6 @@
             5.[Yellow, Skip], - new!
             6.[WildCard] - new!
             7.[WildCard] - new!
-    See Player 2 hand? (Yes/No)
     ...
     
     ================

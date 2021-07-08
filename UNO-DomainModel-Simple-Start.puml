@@ -1,11 +1,11 @@
 ﻿@startuml
 
+title 6 players START example
+
 Uno *-- DrawPile
 Uno *-- DiscardPile
 Uno *-- "6" Player
 Uno *-- Turn
-
-note left of Uno : 6 players PRESTART example
 
 Turn *-- "6" Player
 Turn *-- Direction
@@ -20,7 +20,6 @@ Player *-- "7" Card
 
 DrawPile *-- "107 - 6 * 7" Card
 DiscardPile *-- "1" Card
-
 DiscardPile ..> DrawPile : takes first from
  
 @enduml
