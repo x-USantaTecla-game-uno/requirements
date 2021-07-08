@@ -1,0 +1,144 @@
+﻿@startuml
+
+title Initial State 3 players (Objects)
+
+
+object "Uno" as Uno {
+}
+
+object "Player1" as Player1{
+    cards = [Card32,
+        Card22,
+        Card1,
+        Card23,
+        Card4,
+        Card66,
+        Card80]
+}
+
+object "Player2" as Player2{
+    cards = [Card2,
+        Card3,
+        Card6,
+        Card88,
+        Card92,
+        Card44,
+        Card33]
+}
+
+object "Player3" as Player3{
+    cards = [Card12,
+        Card24,
+        Card35,
+        Card49,
+        Card60,
+        Card73,
+        Card24]
+}
+
+object "Turn" as Turn {
+    currentPlayer= player1
+}
+
+
+object "Card0Blue" as Card0Blue {
+    color = Color.Blue
+    value = 0
+    turnedValue = TurnedValue.UP
+}
+
+object "Card4Green" as Card4Green {
+    color = Color.None
+    value = 4
+    turnedValue = TurnedValue.DOWN
+}
+
+object "CardSkipGreen" as CardSkipGreen {
+    color = Color.Green
+    turnedValue = TurnedValue.DOWN
+}
+
+
+object "CardReverseYellow" as CardReverseYellow {
+    color = Color.Yellow
+    turnedValue = TurnedValue.DOWN
+}
+
+
+object "CardWild" as CardWild {
+    color = Color.None
+    turnedValue = TurnedValue.DOWN
+}
+
+object "Card9Blue" as Card9Blue {
+    color = Color.Blue
+    value = 9
+    turnedValue = TurnedValue.DOWN
+}
+
+object "Card1Red" as Card1Red {
+    color = Color.Red
+    value = 1
+    turnedValue = TurnedValue.DOWN
+}
+
+
+object "Card9Red" as Card9Red {
+    color = Color.Red
+    value = 9
+    turnedValue = TurnedValue.DOWN
+}
+
+object "DrawPile" as DrawPile {
+    cards = [
+        allRemainingCards
+        ]
+}
+
+note bottom of DrawPile
+    exactly 86 cards
+    (108 - 7 * 3 - 1)
+    (all cards - 7 cards 
+    by player - 1 card in discard
+    at start)
+endnote
+
+
+object "DiscardPile" as DiscardPile {
+    cards = [
+            OneRandomCard
+        ]
+}
+
+
+Uno *-- Player1
+Uno *-- Player2
+Uno *-- Player3
+Uno *-- Turn
+
+Turn --> Player1
+
+Uno *-- DrawPile
+Uno *-- DiscardPile
+
+
+DiscardPile o-- Card0Blue
+
+Player1 o-- CardSkipGreen
+Player1 o-left- Card9Blue
+Player1 o-- Card9Red
+Player1 o-- Card1Red
+Player1 o-- Card4Green
+Player1 o-right- CardWild
+Player1 o-- CardReverseYellow
+
+note as PlayerCardsNote
+    same as player1 cards
+    (7 random cards drawed
+    from draw pile)
+endnote
+
+PlayerCardsNote .up. Player2
+PlayerCardsNote .up. Player3
+
+@enduml

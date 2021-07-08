@@ -1,0 +1,31 @@
+﻿@startuml
+
+Title 6 players BEFORE PLAY (deck details) example
+
+Uno *-- DrawPile
+Uno *-right- DiscardPile
+Uno *-- "6" Player
+
+Player *-- "0" Card
+
+DiscardPile *-- "0" Card
+
+Card <|-- NumeredCard
+Card <|-- ActionCard
+
+Card <|--WildCard
+WildCard <|-- DrawFourWildCard
+SimpleWildCard <|-- WildCard
+
+ActionCard <|-- DrawTwoCard
+ActionCard <|-- SkipCard
+ActionCard <|-- ReverseCard
+
+DrawPile ..> "(0..9 + 1..9) * Card Color" NumeredCard
+DrawPile ..> "2 * Card Color" DrawTwoCard
+DrawPile ..> "2 * Card Color" ReverseCard
+DrawPile ..> "2 * Card Color" SkipCard
+DrawPile ..> "4" SimpleWildCard
+DrawPile ..> "4" DrawFourWildCard
+ 
+@enduml
