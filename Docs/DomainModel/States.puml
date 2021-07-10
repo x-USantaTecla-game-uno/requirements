@@ -1,0 +1,38 @@
+﻿@startuml
+
+[*] --> Begin
+
+Begin --> Playing
+Playing --> End
+
+End --> Begin : New play
+End --> [*] : Finish
+
+
+state Playing {
+  [*] --> NewTurn : CurrentPlayer = Player1
+  NewTurn --> PlayerAction
+  
+  PlayerAction --> TurnEnd
+  TurnEnd --> [*] : CurrentPlayer.Cards == 0
+  TurnEnd --> NewTurn : CurrentPlayer = \n NextPlayer(CurrentDirection)
+
+  state PlayerAction{
+    [*] --> PlayerActionStart
+    PlayerActionStart --> PlayCard : CurrentPlayer.HasPlayableCard()  
+    PlayCard --> SelectColor : PlayedCard == WildCard  
+    PlayCard --> [*] : PlayedCard != WildCard
+    
+    SelectColor --> [*]  
+    
+    PlayerActionStart --> DrawCard : CurrentPlayer.HasNotPlayableCard()
+    DrawCard --> PlayerActionStart
+    
+    note bottom of DrawCard 
+    Official rules: just once.
+    Popular rules: until playable card.
+        Using popular rules.    
+    endnote
+  }
+}
+@enduml
