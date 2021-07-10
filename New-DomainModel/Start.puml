@@ -1,0 +1,24 @@
+﻿@startuml
+
+title 6 players START example
+
+Uno *-- DrawPile
+Uno *-- DiscardPile
+Uno *-- "6" Player
+Uno *-- Turn
+
+Turn *-- "6" Player
+Turn *-- Direction
+
+Turn ..> Clockwise : "starts on"
+
+Direction <|-- Clockwise
+Direction <|-- CounterClockwise
+
+Player *-- "7" Card
+
+DrawPile *-- "107 - 6 * 7" Card
+DiscardPile *-- "1" Card
+DiscardPile ..> DrawPile : takes first from
+ 
+@enduml
