@@ -3,14 +3,14 @@
 **Índice**
 
 1. [Reglas](#reglas)  
-2. [Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)
-3. [Modelo del dominio](#modelo-del-dominio)
-    3.1 [Simple](#simple)
-    3.2 [opcion 1](#opcion-1)
-    3.3 [opcion 2](#opcion-2)
-4. [Interfaz](#interfaz)
-    4.1 [Componentes](#componentes)
-    4.2 [Ejemplo](#ejemplo)
+2. [Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)  
+3. [Modelo del dominio](#modelo-del-dominio)  
+    3.1 [Simple](#simple)  
+    3.2 [opcion 1](#opcion-1)  
+    3.3 [opcion 2](#opcion-2)  
+4. [Interfaz](#interfaz)  
+    4.1 [Componentes](#componentes)  
+    4.2 [Ejemplo](#ejemplo)  
 
 # Reglas
 
@@ -29,7 +29,9 @@ https://www.unorules.org/
 
 
 ### Diagrama de Actores y Casos de Uso
-|-|-|
+
+| Diagrama de Actores y Casos de Uso | Diagrama de Contexto |
+|---|---|
 | ![](./Docs/Actores.png) | ![](./Docs/DomainModel/States.png)
 
 
