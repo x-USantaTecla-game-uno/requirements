@@ -1,0 +1,11 @@
+@startuml actores
+left to right direction
+actor Player
+usecase Begin
+usecase PlayCard
+usecase Restart
+
+Player --> Begin
+Player --> PlayCard
+Player --> Restart
+@enduml
