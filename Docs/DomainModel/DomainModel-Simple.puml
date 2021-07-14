@@ -5,12 +5,11 @@ Uno *-- DiscardPile
 Uno *-- "2..10" Player
 Uno *-- Turn
 
-Turn *-- "2..10" Player
+Turn o-- "2..10" Player
 Turn *-- Direction
 
 Direction <|-- Clockwise
 Direction <|-- CounterClockwise
-
 
 Player *-- "1..*" Card
 
@@ -40,8 +39,5 @@ class Color
     Yellow
 }
 
-class Number
-{
-    From 0 to 9
-}
+note bottom of Number: From 0 to 9
 @enduml

@@ -1,0 +1,71 @@
+﻿@startuml
+
+title Domain Model Option 2
+
+Uno *-- DrawPile
+Uno *-- DiscardPile
+Uno *-- "2..10" Player
+Uno *-left- Turn
+
+Turn o-- "2..10" Player
+Turn *-- NextPlayer
+Turn *-- Direction
+
+Direction <|-- Clockwise
+Direction <|-- CounterClockwise
+
+Player *-- "1..*" Card
+Player --> DrawCard
+Player --> PlayCard
+
+PlayCard ..> Card
+DrawCard ..> DrawPile
+
+'''Action <|-- PlayCardAction
+'''Action <|-- DrawCardAction
+'''Action <|-- SelectColorAction
+
+''PlayCardAction <|-- PlayWildCardAction
+''PlayCardAction ..> Card
+
+'''PlayWildCardAction ..> WildCard
+'''PlayWildCardAction --> SelectColorAction
+
+'''SelectColorAction --> Color
+'''DrawCardAction --> DrawPile
+
+DrawPile *-- Card
+DiscardPile *-- Card
+ 
+Card <|-- ActionCard
+Card <|-- NumeredCard
+Card <|-- WildCard
+
+ActionCard <|-- DrawTwoCard
+ActionCard <|-- SkipCard
+ActionCard <|-- ReverseCard
+ActionCard *-- Color
+
+NumeredCard *-- Color
+NumeredCard *-- Number
+
+WildCard <|-- DrawFourWildCard
+WildCard <|-- SimpleWildCard
+WildCard ..> Color
+
+ReverseCard ..> Turn
+DrawTwoCard ..> NextPlayer
+SkipCard ..> Turn
+DrawFourWildCard ..> NextPlayer
+
+class Color
+{
+    Blue
+    Red
+    Green
+    Yellow
+}
+
+class Number
+note bottom of Number: From 0 to 9
+@enduml
