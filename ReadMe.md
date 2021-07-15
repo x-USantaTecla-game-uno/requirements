@@ -21,6 +21,8 @@ https://youtu.be/DQzOvL87vss
 ### Manual de donde hemos sacado los nombres de las entidades.
 https://www.unorules.com/
 
+### Manual oficial en español
+[](./Docs/Rules/UNO-reglas.pdf)
 ### Resumen del juego
 https://www.unorules.org/
 
@@ -45,6 +47,13 @@ https://www.unorules.org/
 
 #### Opcion 2
 ![](./Docs/DomainModel/DomainModel-Option2.png)
+
+### Diagramas de objetos
+#### Before Play Deck Details
+![](./Docs/DomainModel/BeforePlay-DeckDetails.png)
+
+#### Turn 0 - 3 players
+![](./Docs/DomainModel/Turn0-3Players.png)
 
 # Interfaz
 
