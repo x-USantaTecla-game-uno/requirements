@@ -1,6 +1,6 @@
 ﻿@startuml
 
-title Initial State 3 players (Objects)
+title Turn 0 - 3 players
 
 
 object "Uno" as Uno {
