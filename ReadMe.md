@@ -5,9 +5,13 @@
 1. [Reglas](#reglas)  
 2. [Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)  
 3. [Modelo del dominio](#modelo-del-dominio)  
-    3.1 [Simple](#simple)  
-    3.2 [opcion 1](#opcion-1)  
-    3.3 [opcion 2](#opcion-2)  
+    3.1 [Diagramas de clases](#diagramas-de-clases)  
+        3.1.1 [Simple](#simple)  
+        3.1.2 [opcion 1](#opcion-1)  
+        3.1.3 [opcion 2](#opcion-2)  
+    3.2 [Diagramas de objetos](#diagramas-de-objetos)
+        3.2.1 [Before Play Deck Details](#before-play-deck-details)
+        3.2.2 [Turn 0 - 3 players](#turn-0---3-players)
 4. [Interfaz](#interfaz)  
     4.1 [Componentes](#componentes)  
     4.2 [Ejemplo](#ejemplo)  
@@ -37,15 +41,15 @@ https://www.unorules.org/
 | ![](./Docs/Actores.png) | ![](./Docs/DomainModel/States.png)
 
 
-### Modelo del dominio
-
+# Modelo del dominio
+### Diagramas de clases
 #### Simple
 ![](./Docs/DomainModel/DomainModel-Simple.png)
 
-#### Opcion 1
+#### Opción 1
 ![](./Docs/DomainModel/DomainModel-Option1.png)
 
-#### Opcion 2
+#### Opción 2
 ![](./Docs/DomainModel/DomainModel-Option2.png)
 
 ### Diagramas de objetos
