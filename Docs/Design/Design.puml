@@ -1,0 +1,102 @@
+﻿@startuml
+
+class Uno
+{
+    -turn : Turn
+    +Uno(players: int, humanPlayers: int)
+}
+Uno *-- Turn
+note left of Uno::humanPlayers
+    ¿Esos dos enteros
+    forman un modelo
+    con responsabilidad?
+end note
+
+class Turn
+{
+    -directionIsForwards : bool
+    -players : Player[]
+    +NextPlayer : Player
+    +CurrentPlayer : Player
+    
+    +SwitchDirection()
+    +ToNext()
+}
+Turn o-- Player
+
+class Player
+{
+    -hand : Card[]
+    +RemainingCards : int
+    
+    +AddCard(card : Card)
+    +RemoveCard(card : Card)
+}
+Player --> Card
+
+class Deck
+{
+    -drawPile : Card[]
+    +LastDiscard : Card
+    
+    +Draw() : Card
+    +Play(card: Card)
+}
+Deck *-- Card
+
+note top of Deck
+    Encapsula lo
+    que antes era
+    DrawPile y
+    DiscardPile
+end note
+
+abstract class Card
+{
+    -color : Color
+    #Card(color: Color)
+    +Match(card: Card) {abstract}
+}
+Card -u-> Color
+
+class WildCard
+{
+    +WildCard()
+}
+WildCard -|> Card
+
+note left of WildCard::WildCard
+    this.color = Color.Any
+end note
+
+class DrawFourWildCard
+{
+    +DrawFourWildCard()
+}
+DrawFourWildCard -u-|> WildCard
+
+class NumeredCard
+{
+    -number : int <<[0..9]>>
+    +NumeredCard(color: Color, number: int)
+}
+NumeredCard -u-|> Card
+
+SkipCard -u-|> Card
+ReverseCard -u-|> Card
+DrawTwoCard -u-|> Card
+
+enum Color
+{
+    +Blue
+    +Red
+    +Green
+    +Yellow
+    +Any
+    
+    +Equals(color : Color) : bool
+    +{static} implicit ==() : bool
+    +{static} implicit !=() : bool
+}
+
+@enduml
