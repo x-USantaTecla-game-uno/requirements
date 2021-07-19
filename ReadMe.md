@@ -66,75 +66,8 @@ https://www.unorules.org/
 
 # Interfaz
 
+
 ### Componentes
-```
-    UNO! Starting...
-    How many players?
-        -> 0
-    Invalid answer! Player must be inbetween 2 and 10.
-    How many players?
-        -> 3
-    3 players selected.
-    How many human players?
-        -> 4
-    Invalid answer! Human players must be lower than total players.
-    How many human players?
-            -> 0
-        Invalid answer! Human players must be at least 1.
-    
-    ===============
-    
-    Shuffling deck.
-    Players hands dealt.
-
-    Player 1:
-            1.[Red, 3], - new!
-            2.[Green, 4], - new!
-            3.[Green, Reverse], - new!
-            4.[Red, 0], - new!
-            5.[Yellow, Skip], - new!
-            6.[WildCard] - new!
-            7.[WildCard] - new!
-    ...
-    
-    ================
-    
-    Current player:
-        Player 1:
-            [7 cards]
-    Direction:
-        Forwards
-    Discard pile: [Blue, 3] at top
-        
-    What card you want to play?
-        Player 1:
-                1.[Red, 3], - new!
-                2.[Green, 4], - new!
-                3.[Green, Reverse], - new!
-                4.[Red, 0], - new!
-                5.[Yellow, Skip], - new!
-                6.[WildCard] - new!
-                7.[WildCard] - new!
-        -> 8
-        Invalid answer! Card out of range.
-    What card you want to play?
-            Player 1:
-                    1.[Red, 3], - new!
-                    2.[Green, 4], - new!
-                    3.[Green, Reverse], - new!
-                    4.[Red, 0], - new!
-                    5.[Yellow, Skip], - new!
-                    6.[WildCard] - new!
-                    7.[WildCard] - new!
-            -> 1
-    ================ 
-    ...
-    ...
-    ...        
-```
-
-### Ejemplo
-
 ```
 NumeredCardView:
 
@@ -266,4 +199,72 @@ UnoStartView:
         [Read until correct answer, 2-10]
     How many human players?
         [Read until correct answer, 1 <= x <= players]
+```
+
+
+### Ejemplo
+```
+    UNO! Starting...
+    How many players?
+        -> 0
+    Invalid answer! Player must be inbetween 2 and 10.
+    How many players?
+        -> 3
+    3 players selected.
+    How many human players?
+        -> 4
+    Invalid answer! Human players must be lower than total players.
+    How many human players?
+            -> 0
+        Invalid answer! Human players must be at least 1.
+    
+    ===============
+    
+    Shuffling deck.
+    Players hands dealt.
+
+    Player 1:
+            1.[Red, 3], - new!
+            2.[Green, 4], - new!
+            3.[Green, Reverse], - new!
+            4.[Red, 0], - new!
+            5.[Yellow, Skip], - new!
+            6.[WildCard] - new!
+            7.[WildCard] - new!
+    ...
+    
+    ================
+    
+    Current player:
+        Player 1:
+            [7 cards]
+    Direction:
+        Forwards
+    Discard pile: [Blue, 3] at top
+        
+    What card you want to play?
+        Player 1:
+                1.[Red, 3], - new!
+                2.[Green, 4], - new!
+                3.[Green, Reverse], - new!
+                4.[Red, 0], - new!
+                5.[Yellow, Skip], - new!
+                6.[WildCard] - new!
+                7.[WildCard] - new!
+        -> 8
+        Invalid answer! Card out of range.
+    What card you want to play?
+            Player 1:
+                    1.[Red, 3], - new!
+                    2.[Green, 4], - new!
+                    3.[Green, Reverse], - new!
+                    4.[Red, 0], - new!
+                    5.[Yellow, Skip], - new!
+                    6.[WildCard] - new!
+                    7.[WildCard] - new!
+            -> 1
+    ================ 
+    ...
+    ...
+    ...        
 ```
