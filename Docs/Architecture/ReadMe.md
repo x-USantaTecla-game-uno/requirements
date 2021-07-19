@@ -52,13 +52,13 @@ Es decir, que los componentes de un sistema sean cohesivos.
 Para ello habría que trocear las capas más exteriores, ya que por ejemplo la de adaptadores incluye tanto controladores como presentadores, que no tienen cohesión entre sí.  
 Este troceo se ejemplifica comparando las tres siguientes imágenes, donde:
 - la primera define la arquitectura propuesta en general;
-- la segunda muestra el flujo de dependencias según abstracción;
-- la tercera la trocea para aumentar la cohesión de componentes;
-
-
 ![](CleanArchitecture.jpg)
+- la segunda muestra el flujo de dependencias según abstracción;
 ![](CleanArchitecture-OneSlice.jpg)
+- la tercera la trocea para aumentar la cohesión de componentes;
 ![](CleanArchitecture-Sliced.png)
+
+
 
 
 

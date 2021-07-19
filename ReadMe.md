@@ -4,8 +4,10 @@
 
 **Índice**
 
-**[1. Reglas](#reglas)**  
-**[2. Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)**  
+**[1. Reglas](#reglas)**
+
+**[2. Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)**
+
 **[3. Modelo del dominio](#modelo-del-dominio)**
   * [3.1 Diagramas de clases](#diagramas-de-clases)
     * [3.1.1 Simple](#simple)  
