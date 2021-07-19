@@ -32,6 +32,12 @@ Las capas que propone por defecto la Clean Architecture son:
 | Adapters | Controllers, Presenters, implementación de Gateways... |    Application y tal vez Domain |
 | Frameworks | Databases, UI... |    Adapters |
 
+Un ejemplo de aplicación de lo anterior podría ser el siguiente diagrama:
+![](CleanArchitecture-ClassesDiagram.png)
+
+Que viene del ejemplo original mencionado por Robert Martin.
+![](CleanArchitecture-ScenarioDiagram.png)
+
 Las capas son maleables y pueden añadirse, trocearse o combinarse de la forma que mejor convenga al proyecto.
 
 ## Capas mínimas

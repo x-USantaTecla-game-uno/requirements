@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package Application
+{
+    package Domain
+    {
+        class Entity
+    }
+
+    UseCaseInteractor --> Entity
+    
+    UseCaseInteractor --|> InputBoundary 
+    
+    UseCaseInteractor ..> OutputData
+    UseCaseInteractor --> OutputBoundary
+   
+    UseCaseInteractor --> Gateway
+    
+    interface InputBoundary
+    interface OutputBoundary
+    
+    InputBoundary ..> InputData
+    OutputBoundary ..> OutputData
+    
+    class InputData << (S, orange) Data structure>>
+    class OutputData << (S, orange) Data structure>>
+    
+    interface Gateway
+    Gateway ..> Entity
+}
+
+package Infrastructure
+{
+    RepositoryDAO --|> Gateway
+    RepositoryDAO --> Database
+    
+    ViewImplementatation --|> View
+}
+
+package Adapters
+{
+    Controller ..> InputData
+    Controller --> InputBoundary
+    
+    Presenter --|> OutputBoundary
+    Presenter ..> OutputData
+    
+    Presenter ..> ViewModel
+    Presenter --> View
+    
+    View ..> ViewModel
+    
+    class ViewModel << (S, orange) Data structure>>
+}
+
+
+
+@enduml
