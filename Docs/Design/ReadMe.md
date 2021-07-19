@@ -1,0 +1,4 @@
+# Diseño
+
+## Entidades
+![](Design.png)
