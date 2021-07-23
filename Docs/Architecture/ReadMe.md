@@ -2,9 +2,6 @@
 
 Se va a implementar una arquitectura por capas siguiendo la terminología de la *clean architecture* propuesta por Robert Martin.
 
-## Diagrama resumen
-WIP.
-
 ## Correspondencia con MV*
 Esta tabla asocia dicha terminología con patrones arquitectónicos MV*:
 
@@ -20,6 +17,29 @@ Los principios en los que se basa son los que pueden resumir a cualquier arquite
 - El flujo de dependencias es unidireccional.
     - La dirección va de menos abstracción (mayor dependencia con tecnologías) a más abstracción.
 - El flujo de control hace un viaje de ida y vuelta, siguiendo primero el flujo de dependencias y después el sentido contrario.
+
+### Estructuras de datos
+
+Los elementos anteriores se comunican información apoyándose en estructuras de datos que son clases tontas,
+sin responsabilidad, análogas a los DTO solo que simplemente atravesando capas de la arquitectura.
+
+| Estructura   | Descripción |      Quién la envía      |  Quién la recibe | 
+|:-------:|:-----:|:--------:|:--------------:|
+| Input data | Qué entrada se ha recibido del usuario |  Controller | InputBoundary (UseCase/Interactor) |
+| Output data | La respuesta que se manda de vuelta al usuario | UseCase/Interactor | OutputBoundary (Presenter) |
+| ViewModel | Qué actualizar en la vista | Presenter | View (ViewImplementation) |
+
+### Abstracciones
+
+Se usan interfaces como "enchufes" que invierten las dependencias, de manera que las capas menos abstractas
+implementan esas interfaces sin que las capas más abstractas tengan que conocerlas. 
+
+| Abstracción   | Descripción | En qué capa está |  Quién la conoce      |  Quién la implementa | 
+|:-------:|:-----:|:--------:|:--------------:| :-----:|
+| InputBoundary | Entrada desde la infraestructura hacia el dominio | Dominio |  Controller | UseCase/Interactor |
+| OutputBoundary | Salida desde el dominio hacia la infraestructura | Dominio | UseCase/Interactor | Presenter |
+| Gateway | Conexiones con persistencia | Dominio | UseCase/Interactor | DAO |
+| View | Descripción genérica de una vista | Presentation | Presenter | ViewImplementation |
 
 ## Capas recomendadas
 
@@ -64,6 +84,21 @@ Este troceo se ejemplifica comparando las tres siguientes imágenes, donde:
 - la tercera la trocea para aumentar la cohesión de componentes;
 ![](CleanArchitecture-Sliced.png)
 
+
+Así pues, estos dos diagramas ejemplifican esa cohesión:
+- entre los componentes:
+
+![](CleanArchitecture-CohesiveComponents.png)
+- con las relaciones entre clases:
+
+![](CleanArchitecture-CohesiveComponents-Classes.png)
+  
+Por último, sintetizando entre el diagrama de capas que se vio anteriormente
+y esta última estructura de capas circulares, que es la que ha trascendido como
+la representante de la Clean Architecture,
+se podría tener todo completo en este diagrama final:
+
+![](CleanArchitecture-ClassesDiagram-Cohesive.png)
 
 
 

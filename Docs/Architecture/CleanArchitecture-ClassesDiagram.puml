@@ -7,6 +7,13 @@ package Application
     {
         class Entity
     }
+    note top of Domain
+    R. Martin, en el
+    diagrama anterior,
+    deja caer que el dominio
+    puede estar envuelto
+    por la aplicación
+    end note
 
     UseCaseInteractor --> Entity
     
@@ -35,7 +42,7 @@ package Infrastructure
     RepositoryDAO --|> Gateway
     RepositoryDAO --> Database
     
-    ViewImplementatation --|> View
+    ViewImplementation --|> View
 }
 
 package Adapters

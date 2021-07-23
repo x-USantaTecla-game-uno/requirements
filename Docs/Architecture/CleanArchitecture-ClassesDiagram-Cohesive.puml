@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "Inner circles"
+{
+    package Domain
+    {
+        class Entity
+    }
+    
+    package Application
+    {
+        UseCaseInteractor -l-> Entity
+        
+        UseCaseInteractor -l-|> InputBoundary 
+        
+        UseCaseInteractor ..> OutputData
+        UseCaseInteractor --> OutputBoundary
+       
+        UseCaseInteractor --> Gateway
+        
+        interface InputBoundary
+        interface OutputBoundary
+        
+        InputBoundary ..> InputData
+        OutputBoundary ..> OutputData
+        
+        class InputData << (S, orange) Data structure>>
+        class OutputData << (S, orange) Data structure>>
+        
+        interface Gateway
+        Gateway ..> Entity
+    }
+}
+
+package "Outer circle"
+{
+    package Gateways
+    {
+        RepositoryDAO --|> Gateway
+        RepositoryDAO --> Database
+    }
+    
+    package Controllers
+    {
+        Controller ..> InputData
+        Controller --> InputBoundary
+    }
+    
+    package Presenters
+    {
+        Presenter --|> OutputBoundary
+        Presenter ..> OutputData
+        
+        Presenter ..> ViewModel
+        Presenter --> View
+        
+        View ..> ViewModel
+        
+        class ViewModel << (S, orange) Data structure>>
+    } 
+}
+
+package "Outermost circle"
+{
+    package Views
+    {    
+        ViewImplementation --|> View
+    }
+}
+
+@enduml
