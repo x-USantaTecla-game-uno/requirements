@@ -3,13 +3,13 @@
 Se va a implementar una arquitectura por capas siguiendo la terminología de la *clean architecture* propuesta por Robert Martin.
 
 ## Diagrama resumen
-TL;DR: se va a explicar cómo la Clean  Architecture originalmente propuesta
- se puede resumir en este simple diagrama de componentes.
+TL;DR: este documento explica cómo la Clean Architecture originalmente propuesta
+puede resumirse en este simple diagrama de componentes.
 
 ![](CleanArchitecture-ComponentsDiagram-Cohesive.png)
 
-Los paquetes referencian a la presentación circular tan conocida de esta arquitectura,
-similar a las que proponen otras como la arquitectura hexagonal o de cebolla.
+Los paquetes coloreados referencian a la presentación circular tan conocida de esta arquitectura,
+similar a las que proponen otras como la arquitectura hexagonal (puertos y adaptadores) o la arquitectura de cebolla.
 
 ![](CleanArchitecture.jpg)
 

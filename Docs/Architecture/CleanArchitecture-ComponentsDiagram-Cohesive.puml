@@ -13,25 +13,25 @@ package "Inner circle" #Implementation {
     [Application] -- Gateway
 }
 
-package "Outer circle 1" #Technology {
+package "Outer circle" #Technology {
     [Controllers] --> InputBoundary
 }
 
-package "Outer circle 2" #Technology {
+package "Outer circle " #Technology {
     [Presenters] --|> OutputBoundary
     View -u- Presenters
 }
 
-package "Outer circle 3" #Technology {
+package "Outer circle  " #Technology {
     [DAO] --|> Gateway
     [DAO] -- Repository
 }
 
-package "Outermost circle 2" #Application {
+package "Outermost circle " #Application {
     [Database] -u-|> Repository
 }
 
-package "Outermost circle 1" #Application {
+package "Outermost circle" #Application {
     [ViewImplementation] -u-|> View
 }
 @enduml
