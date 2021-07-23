@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/component-diagram
+skinparam componentStyle uml1
+
+package "Innermost circle" #Business{
+    [Domain]
+}
+
+package "Inner circle" #Implementation {
+    [Application] -u-> [Domain]  
+    InputBoundary - [Application]
+    [Application] -- OutputBoundary
+    [Application] -- Gateway
+}
+
+package "Outer circle 1" #Technology {
+    [Controllers] --> InputBoundary
+}
+
+package "Outer circle 2" #Technology {
+    [Presenters] --|> OutputBoundary
+    View -u- Presenters
+}
+
+package "Outer circle 3" #Technology {
+    [DAO] --|> Gateway
+    [DAO] -- Repository
+}
+
+package "Outermost circle 2" #Application {
+    [Database] -u-|> Repository
+}
+
+package "Outermost circle 1" #Application {
+    [ViewImplementation] -u-|> View
+}
+@enduml

@@ -49,6 +49,8 @@ package "Outer circle"
     
     package Presenters
     {
+        interface View
+    
         Presenter --|> OutputBoundary
         Presenter ..> OutputData
         

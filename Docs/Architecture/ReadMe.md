@@ -2,6 +2,17 @@
 
 Se va a implementar una arquitectura por capas siguiendo la terminología de la *clean architecture* propuesta por Robert Martin.
 
+## Diagrama resumen
+TL;DR: se va a explicar cómo la Clean  Architecture originalmente propuesta
+ se puede resumir en este simple diagrama de componentes.
+
+![](CleanArchitecture-ComponentsDiagram-Cohesive.png)
+
+Los paquetes referencian a la presentación circular tan conocida de esta arquitectura,
+similar a las que proponen otras como la arquitectura hexagonal o de cebolla.
+
+![](CleanArchitecture.jpg)
+
 ## Correspondencia con MV*
 Esta tabla asocia dicha terminología con patrones arquitectónicos MV*:
 
@@ -52,10 +63,12 @@ Las capas que propone por defecto la Clean Architecture son:
 | Adapters | Controllers, Presenters, implementación de Gateways... |    Application y tal vez Domain |
 | Frameworks | Databases, UI... |    Adapters |
 
-Un ejemplo de aplicación de lo anterior podría ser el siguiente diagrama:
+Un ejemplo de aplicación de lo anterior podría ser el siguiente diagrama:  
+
 ![](CleanArchitecture-ClassesDiagram.png)
 
 Que viene del ejemplo original mencionado por Robert Martin.
+
 ![](CleanArchitecture-ScenarioDiagram.png)
 
 Las capas son maleables y pueden añadirse, trocearse o combinarse de la forma que mejor convenga al proyecto.
@@ -77,11 +90,16 @@ Es decir, que los componentes de un sistema sean cohesivos.
 
 Para ello habría que trocear las capas más exteriores, ya que por ejemplo la de adaptadores incluye tanto controladores como presentadores, que no tienen cohesión entre sí.  
 Este troceo se ejemplifica comparando las tres siguientes imágenes, donde:
-- la primera define la arquitectura propuesta en general;
+- la primera define la arquitectura propuesta en general, que ya se ha visto al principio;
+
 ![](CleanArchitecture.jpg)
+
 - la segunda muestra el flujo de dependencias según abstracción;
+
 ![](CleanArchitecture-OneSlice.jpg)
+
 - la tercera la trocea para aumentar la cohesión de componentes;
+
 ![](CleanArchitecture-Sliced.png)
 
 
@@ -89,6 +107,7 @@ Así pues, estos dos diagramas ejemplifican esa cohesión:
 - entre los componentes:
 
 ![](CleanArchitecture-CohesiveComponents.png)
+
 - con las relaciones entre clases:
 
 ![](CleanArchitecture-CohesiveComponents-Classes.png)

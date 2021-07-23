@@ -39,6 +39,8 @@ package Application
 
 package Infrastructure
 {
+    interface View
+    
     RepositoryDAO --|> Gateway
     RepositoryDAO --> Database
     
