@@ -80,6 +80,7 @@ Sin embargo, como mínimo debe existir la noción de estas dos grandes capas:
 |:-------:|:-------------:|:--------------:|
 | Domain |  Domain + Application | Ninguna otra capa, ya que es la de mayor abstracción |
 | Infrastructure |  Adapters + Frameworks  |   Domain |
+
 El nombre de Domain en este caso se extiende y es quizá desafortunado por su ambigüedad,
 pero al final se trata de diferenciar, simplemente, entre abstracciones y detalles de implementación.
 
