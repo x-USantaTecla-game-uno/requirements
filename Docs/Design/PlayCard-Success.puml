@@ -1,0 +1,95 @@
+@startuml
+
+Title "Play Card (Success)"
+
+Presentation.PlayCardPresenter --> Presentation.PlayerView
+Control.PlayCardController --> Application.PlayCardInputPort
+Control.PlayCardController ..> Application.CardPlayRequest
+
+Presentation.PlayerView ..> Presentation.PlayerViewModel
+Presentation.PlayerView <|-- Infrastructure.PlayerViewUnity
+
+Application.PlayCardOutputPort <|-- Presentation.PlayCardPresenter
+Application.PlayCardOutputPort ..> Application.PlayedCardResponse
+Application.PlayCardInputPort <|-- Application.PlayCardInteractor
+Application.PlayCardInputPort .> Application.CardPlayRequest
+Application.PlayCardInteractor -> Domain.Uno
+Application.PlayCardInteractor ..> Application.PlayedCardResponse
+Application.PlayCardInteractor --> Application.PlayCardOutputPort
+
+
+package "Infrastructure" #Application {
+    class PlayerViewUnity <<MonoBehaviour>> {
+        + Display(playerViewModel: PlayerViewModel)
+    }
+}
+
+package Presentation #Technology {
+    
+    class PlayerViewModel  << (S, orange) DTO>>
+    
+    interface PlayerView{
+    void Display(playerViewModel: PlayerViewModel)
+    }
+    
+    class PlayCardPresenter {
+        +Display()
+    }
+    PlayCardPresenter ..> PlayerViewModel
+    
+    class PlayerViewModel{
+        + currentHand : Card[]
+    }
+}
+
+package Control #Technology {
+    
+    class PlayCardController
+}
+
+package Application #Implementation {
+    class CardPlayRequest << (S, orange) DTO>>
+    
+    interface PlayCardInputPort{
+        RequestPlayCard(request: CardPlayRequest)
+    }
+    
+    interface PlayCardOutputPort{
+    }
+    
+    package ErrorCase <<cloud>> {
+        interface PlayCardErrorOutputPort
+        
+        note bottom of PlayCardErrorOutputPort
+        Saldría hacia otro presentador
+        que se encargue de manejar la
+        respuesta visual/auditiva de error.
+        endnote
+        
+        PlayCardErrorOutputPort <-u- Application.PlayCardInteractor
+        
+    }
+    
+    class PlayedCardResponse <<(S, orange) DTO>> {
+        +cardIndex : int
+    }
+    
+    class PlayCardInteractor     
+    
+    class CardPlayRequest {
+        + cardIndex: int
+    }
+}
+
+package Domain #Business {
+    class Uno
+    
+    note bottom of Uno
+    No tengo tan claro
+    que sea Uno quien
+    reciba mensajes de
+    este Interactor 
+    endnote
+}
+
+@enduml

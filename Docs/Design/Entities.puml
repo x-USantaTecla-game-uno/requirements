@@ -7,9 +7,9 @@ class Uno
 }
 Uno *-- Turn
 note left of Uno::humanPlayers
-    ¿Esos dos enteros
-    forman un modelo
-    con responsabilidad?
+    Estos dos enteros
+    requerirán ser un
+    DTO más complejo.
 end note
 
 class Turn
@@ -98,5 +98,9 @@ enum Color
     +{static} implicit ==() : bool
     +{static} implicit !=() : bool
 }
+
+note left of Color::Any
+Any.Equals(lo que sea) == true
+end note
 
 @enduml

@@ -47,10 +47,12 @@ implementan esas interfaces sin que las capas más abstractas tengan que conocer
 
 | Abstracción   | Descripción | En qué capa está |  Quién la conoce      |  Quién la implementa | 
 |:-------:|:-----:|:--------:|:--------------:| :-----:|
-| InputBoundary | Entrada desde la infraestructura hacia el dominio | Dominio |  Controller | UseCase/Interactor |
-| OutputBoundary | Salida desde el dominio hacia la infraestructura | Dominio | UseCase/Interactor | Presenter |
-| Gateway | Conexiones con persistencia | Dominio | UseCase/Interactor | DAO |
+| InputBoundary | Entrada desde la infraestructura hacia el dominio | Dominio (Domain+Application*) |  Controller | UseCase/Interactor |
+| OutputBoundary | Salida desde el dominio hacia la infraestructura | Dominio (Domain+Application*) | UseCase/Interactor | Presenter |
+| Gateway | Conexiones con persistencia | Dominio (Domain + Application*) | UseCase/Interactor | DAO |
 | View | Descripción genérica de una vista | Presentation | Presenter | ViewImplementation |
+
+*Ver apartado [Capas mínimas](#capas-mínimas) para no confundir ese concepto de «Dominio» con la capa *Domain*.
 
 ## Capas recomendadas
 
@@ -78,10 +80,10 @@ Sin embargo, como mínimo debe existir la noción de estas dos grandes capas:
 
 | Capa   |      Contiene      |  Conoce a | 
 |:-------:|:-------------:|:--------------:|
-| Domain |  Domain + Application | Ninguna otra capa, ya que es la de mayor abstracción |
+| Domain |  Domain* + Application | Ninguna otra capa, ya que es la de mayor abstracción |
 | Infrastructure |  Adapters + Frameworks  |   Domain |
 
-El nombre de Domain en este caso se extiende y es quizá desafortunado por su ambigüedad,
+*El nombre de Domain en este caso se extiende y es quizá desafortunado por su ambigüedad,
 pero al final se trata de diferenciar, simplemente, entre abstracciones y detalles de implementación.
 
 ## Capas cohesivas

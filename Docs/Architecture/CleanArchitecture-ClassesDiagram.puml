@@ -1,9 +1,9 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package Application
+package Application #Implementation
 {
-    package Domain
+    package Domain #Business
     {
         class Entity
     }
@@ -37,20 +37,28 @@ package Application
     Gateway ..> Entity
 }
 
-package Infrastructure
+package "Infrastructure " #Application
 {
-    interface View
-    
-    RepositoryDAO --|> Gateway
-    RepositoryDAO --> Database
-    
-    ViewImplementation --|> View
+    RepositoryDAO -u-|> Gateway
+    RepositoryDAO -u-> Database    
 }
 
-package Adapters
+package Adapters #Technology
 {
-    Controller ..> InputData
-    Controller --> InputBoundary
+    Controller .r.> InputData
+    Controller -r-> InputBoundary
+}
+
+package Infrastructure #Application
+{
+    class ViewImplementation
+}
+
+package "Adapters " #Technology
+{
+    interface View
+    ViewImplementation --|> View
+
     
     Presenter --|> OutputBoundary
     Presenter ..> OutputData
