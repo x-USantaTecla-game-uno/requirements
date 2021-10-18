@@ -6,20 +6,24 @@
 
 **[1. Reglas](#reglas)**
 
-**[2. Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)**
+**[2. Modelo del dominio](#modelo-del-dominio)**
+* [2.1 Diagramas de clases](#diagramas-de-clases)
+    * [2.1.1 Simple](#simple)
+    * [2.1.2 opcion 1](#opción-1)
+    * [2.1.3 opcion 2](#opción-2)
+* [2.2 Diagramas de objetos](#diagramas-de-objetos)
+    * [2.2.1 Before Play Deck Details](#before-play-deck-details)
+    * [2.2.2 Turn 0 - 3 players](#turn-0---3-players)
 
-**[3. Modelo del dominio](#modelo-del-dominio)**
-  * [3.1 Diagramas de clases](#diagramas-de-clases)
-    * [3.1.1 Simple](#simple)  
-    * [3.1.2 opcion 1](#opción-1)  
-    * [3.1.3 opcion 2](#opción-2)        
-  * [3.2 Diagramas de objetos](#diagramas-de-objetos)  
-    * [3.2.1 Before Play Deck Details](#before-play-deck-details)  
-    * [3.2.2 Turn 0 - 3 players](#turn-0---3-players)
+**[3. Diagrama de Actores y Casos de Uso](#diagrama-de-actores-y-casos-de-uso)**
 
 **[4. Interfaz](#interfaz)**
   * [4.1 Componentes](#componentes)
   * [4.2 Ejemplo](#ejemplo)
+
+**[5. Diseño](#diseño)**
+
+**[6. Arquitectura](#arquitectura)**
 
 # Reglas
 
@@ -32,18 +36,12 @@ https://www.unorules.com/
 
 ### Manual oficial en español
 [](./Docs/Rules/UNO-reglas.pdf)
+
 ### Resumen del juego
 https://www.unorules.org/
 
 ### Contenido de un Deck
 ![](https://www.unorules.org/wp-content/uploads/2021/03/All-Uno-cards-how-many-cards-are-in-a-uno-deck.png)
-
-
-### Diagrama de Actores y Casos de Uso
-
-| Diagrama de Actores y Casos de Uso | Diagrama de Contexto |
-|---|---|
-| ![](./Docs/Actores.png) | ![](./Docs/DomainModel/States.png)
 
 
 # Modelo del dominio
@@ -63,6 +61,12 @@ https://www.unorules.org/
 
 #### Turn 0 - 3 players
 ![](./Docs/DomainModel/Turn0-3Players.png)
+
+### Diagrama de Actores y Casos de Uso
+
+| Diagrama de Actores y Casos de Uso | Diagrama de Contexto |
+|---|---|
+| ![](./Docs/Actores.png) | ![](./Docs/DomainModel/States.png)
 
 # Interfaz
 
@@ -268,3 +272,12 @@ UnoStartView:
     ...
     ...        
 ```
+
+
+# Diseño
+
+Ver apartado [Design](./Docs/Design/ReadMe.md).
+
+# Arquitectura
+
+Ver apartado [Architecture](./Docs/Architecture/ReadMe.md).
